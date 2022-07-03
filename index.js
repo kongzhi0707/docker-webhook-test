@@ -33,14 +33,14 @@ const resolvePost = req =>
     });
     req.on("end", () => {
       resolve(JSON.parse(chunk));
-    })
+    });
   });
 
-http.createServer((req, res) => {
+http.createServer( async (req, res) => {
   console.log('receive request')
   console.log(req.url)
   if (req.method === 'POST' && req.url === '/') {
-    const data = resolvePost(req);
+    const data = await resolvePost(req);
     console.log('---req--data---', data);
 
     const projectDir = path.resolve(__dirname, `./${data.repository.name}`);
