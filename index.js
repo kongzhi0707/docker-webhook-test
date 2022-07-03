@@ -36,7 +36,7 @@ const resolvePost = req =>
     });
   });
 
-http.createServer( async (req, res) => {
+http.createServer(async(req, res) => {
   console.log('receive request')
   console.log(req.url)
   if (req.method === 'POST' && req.url === '/') {
