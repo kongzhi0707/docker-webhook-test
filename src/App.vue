@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div>Hello Docker~ kongzhi xxx</div>
+    <div>Hello Docker~ kongzhi test</div>
   </div>
 </template>
 
