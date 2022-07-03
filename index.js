@@ -69,5 +69,5 @@ http.createServer(async (req, res) => {
     }
     res.end('ok')
 }).listen(3005, () => {
-    console.log('server is ready')
+    console.log('server is ready---12233444---')
 })
