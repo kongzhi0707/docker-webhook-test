@@ -1,5 +1,5 @@
 const http = require("http")
-const {execSync} = require("child_process")
+const { execSync } = require("child_process")
 const fs = require("fs")
 const path = require("path")
 
@@ -19,15 +19,16 @@ function deleteFolderRecursive(path) {
 }
 
 const resolvePost = req =>
-    new Promise(resolve => {
-        let chunk = "";
-        req.on("data", data => {
-            chunk += data;
-        });
-        req.on("end", () => {
-            resolve(JSON.parse(chunk));
-        });
+  new Promise(resolve => {
+    let chunk = "";
+    req.on("data", data => {
+      chunk += data;
     });
+    req.on("end", () => {
+      console.log('---end----', chunk);
+      resolve(JSON.parse(chunk));
+    });
+  });
 
 http.createServer(async (req, res) => {
     console.log('receive request')
@@ -68,6 +69,6 @@ http.createServer(async (req, res) => {
         console.log('deploy success')
     }
     res.end('ok')
-}).listen(3009, () => {
-    console.log('server is ready---3009---')
+}).listen(3000, () => {
+    console.log('server is ready---3000--进来了-')
 })
